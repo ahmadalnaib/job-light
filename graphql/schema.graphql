@@ -11,6 +11,8 @@ type Query {
 
     tags: [Tag!]! @all
     tag(slug: String! @eq): Tag @find
+
+    jobs: [Job!]! @all
 }
 
 type Tag {
@@ -25,4 +27,18 @@ type User {
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
+}
+
+
+type Job {
+    id: ID!
+    job_title: String!
+    job_location: String!
+    job_link: String!
+    company_name: String!
+    company_logo:String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    tags:[Tag!]! @belongsToMany
+  
 }
